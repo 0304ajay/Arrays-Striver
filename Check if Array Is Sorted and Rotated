@@ -1,0 +1,42 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int length = nums.size();
+        vector<int> sortedArray;
+        for (int i = 0; i < length; i++)
+        {
+            sortedArray.push_back(nums[i]);
+        }
+
+        sort(sortedArray.begin(), sortedArray.end());
+
+        for (int i = 0; i < length; i++)
+        {
+            int compare = length;
+            for (int j = 0; j < length; j++)
+            {
+                if (sortedArray[j] == nums[j])
+                {
+                    compare--;
+                }
+            }
+
+            if (compare == 0)
+            {
+                return true;
+            }
+            else
+            {
+                int temp = sortedArray[0];
+                int k = 0;
+                for (k=0; k < length-1; k++)
+                {
+                    sortedArray[k] = sortedArray[k + 1];
+                }
+                sortedArray[k] = temp;
+            }
+        }
+        return false;
+
+    }
+};
