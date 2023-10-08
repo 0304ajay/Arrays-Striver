@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n=nums.size();
+            int i=0;
+            vector<int> rotateArray;
+            for(int i=0;i<nums.size();i++)
+            {
+                rotateArray.push_back(nums[(n-k+i)%n]);
+            }
+
+            for(int i=0;i<nums.size();i++)
+            {
+                nums[i]=rotateArray[i];
+            }
+        
+    }
+};
