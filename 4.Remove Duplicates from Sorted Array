@@ -1,0 +1,18 @@
+//This is answer to coding ninjas 
+
+int removeDuplicates(vector<int> &arr, int n) {
+	// Write your code here.
+		int j=0;
+		int k=1;
+		for(int i=0;i<n;i++)
+		{	
+			if(arr[j]<arr[i])
+			{
+				k++;
+				j=i;
+			}
+		}
+
+		return k;
+
+}
