@@ -1,0 +1,28 @@
+//solution for the question in the leetcode
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        vector<int> v;
+        int n=0,i,j=0;
+        for(i=0;i<nums.size();i++)
+        {
+            if(nums[i]==1)
+            {
+                j=j+1;
+                 n=j;
+            }
+            else
+            {
+                //pushback the all no of consecutive ones  into the vector 
+                v.push_back(n);
+                j=0;
+            }
+            
+        }
+        //the last 
+        v.push_back(j);
+
+        return *max_element(v.begin(),v.end());
+    }
+};
