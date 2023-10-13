@@ -1,4 +1,4 @@
-//coding ninjas
+ //coding ninjas
 
 #include <bits/stdc++.h> 
 void sortArray(vector<int>& nums, int n)
