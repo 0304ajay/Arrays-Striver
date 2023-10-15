@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        vector<int> o;
+        vector<int> p;
+        int i=0,j=1,count=1;
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        for(i=1;i<n;i++)
+        {
+            if(nums[j]==nums[i])
+            {
+                count++;
+            }
+            else
+            {
+                j=i;
+                o.push_back(count);
+                p.push_back(i-1);
+                count=1;
+            }
+        }
+        o.push_back(count);
+        p.push_back(i-1);
+
+        int max=0,position=0;
+        for(i=0;i<o.size();i++)
+        {
+            if(max<o[i])
+            {
+                max=o[i];
+                position=i;
+            }
+        }
+        int index=p[position];
+        return nums[index];
+    }
+};
