@@ -1,0 +1,9 @@
+//coding Ninjas
+#include <bits/stdc++.h> 
+vector<int> rotateArray(vector<int>& arr, int n) {
+    // Write your code here.
+    int First=arr[0];
+    arr.erase(arr.begin());
+    arr.push_back(First);
+    return arr;
+}
