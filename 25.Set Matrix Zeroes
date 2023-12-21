@@ -1,0 +1,33 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& m) {
+        set<int> v;
+        for(int i=0;i<m.size();i++)
+        {
+            for(int j=0;j<m[i].size();j++)
+            {
+                if(m[i][j]==0)
+                v.insert(j);
+            }
+        }
+         for(int i=0;i<m.size();i++)
+        {
+            for(int j=0;j<m[i].size();j++)
+            {
+                if(m[i][j]==0)
+                m[i].assign(m[i].size(),0);
+            }
+        }
+        for(int i=0;i<m.size();i++)
+        {
+            for(int j=0;j<m[i].size();j++)
+            {
+                auto it=v.find(j);
+                if(it!=v.end())
+                {
+                    m[i][j]=0;
+                }
+            }
+        }
+    }
+};
