@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int n=matrix.size();//gives no of rows
+        vector<int> v;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                v.push_back(matrix[i][j]);
+            }
+        }
+
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=n-1;j>=0;j--)
+            {
+                matrix[j][i]=v.back();
+                v.pop_back();
+            }
+        }
+    }
+};
