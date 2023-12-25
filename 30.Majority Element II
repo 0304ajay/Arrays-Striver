@@ -1,0 +1,59 @@
+//leetcode
+//without Extra Memory
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        int count=1;
+        vector<int> v;
+        int j=0;
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<n;i++)
+        {
+            for(j=i;j<n-1;j++)
+            {
+                if(nums[j]==nums[j+1])
+                {
+                    count++;
+                }
+                else
+                break;
+            }
+           
+            if(count>(n/3))
+            {
+                v.push_back(nums[j]);
+            }
+            count=1;
+            i=j;
+        }
+        return v;
+    }
+};
+
+
+
+
+************************************************Using Maps***************************************************************************_
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        map<int,int> mp;
+        vector<int> v;
+        int n=nums.size();
+        for(int i=0;i<n;i++)
+        {
+            mp[nums[i]]++;
+        }
+        auto it=mp.begin();
+        while(it!=mp.end())
+        {
+            if(it->second >(n/3))
+            {
+                v.push_back(it->first);
+            }
+            it++;
+        }
+        return v;
+    }
+};
