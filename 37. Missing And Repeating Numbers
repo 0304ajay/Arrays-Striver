@@ -1,0 +1,29 @@
+vector<int> findMissingRepeatingNumbers(vector < int > a) {
+    // Write your code here
+    int n=a.size();
+    vector<int> hash(n+1,0);//using hash map
+    vector<int> v;
+    for(int i=0;i<n;i++)
+    {
+        int p=a[i];
+        hash[p]++;
+    }
+
+    for(int i=1;i<=n;i++)
+    {
+        if(hash[i]==2)
+        {
+            v.push_back(i);
+        }
+    }
+
+        for(int i=1;i<=n;i++)
+    {
+                if(hash[i]==0)
+        {
+            v.push_back(i);
+        }
+    }
+
+    return v;
+}
