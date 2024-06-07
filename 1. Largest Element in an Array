@@ -2,7 +2,7 @@
 int largestElement(vector<int> &arr, int n) {
     // it return a maximum element.
 
-    int maximum=*max_element(arr.begin(),arr.end());
+    int maximum=*max_element(arr.begin(),arr.end()); 
     
     return maximum;
 
